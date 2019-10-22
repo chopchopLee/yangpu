@@ -29,22 +29,22 @@
     <div class='center'>
       <div class="title-img">
         <img src="../../statics/img/title.jpg" alt="">
-        <detail></detail>
+        <wave></wave>
       </div>
       <div class="list">
         <div class="icon bubbly-button" :class="{'animate': animate1}" @click="clickMe1">
-          <img src="../../statics/img/project1.png" alt="">
+          <img :src="src1" alt="">
         </div>
         <div class="icon bubbly-button" :class="{'animate': animate2}" @click="clickMe2">
-          <img src="../../statics/img/project2.png" alt="" class="icon bubbly-button" :class="{'animate': animate2}" @click="clickMe2">
+          <img :src="src2" alt="" @click="clickMe2">
         </div>
       </div>
       <div class="list">
         <div class="icon bubbly-button" :class="{'animate': animate3}" @click="clickMe3">
-          <img src="../../statics/img/project3.png" alt="">
+          <img :src="src3" alt="">
         </div>
         <div  class="icon bubbly-button" :class="{'animate': animate4}" @click="clickMe4">
-          <img src="../../statics/img/project4.png" alt="">
+          <img :src="src4" alt="">
         </div>
       </div>
     </div>
@@ -57,15 +57,20 @@
 </div>
 </template>
 <script>
-import Detail from '../detail/index'
+import Wave from '../../components/wave'
 export default {
-  components:{ Detail },
+  components:{ Wave },
   data() {
     return {
+     index: '',
       animate1: false,
       animate2: false,
       animate3: false,
       animate4: false,
+      src1: require('../../statics/img/project1-yellow.png'),
+      src2: require('../../statics/img/project2-blue.png'),
+      src3: require('../../statics/img/project3-blue.png'),
+      src4: require('../../statics/img/project4-blue.png'),
     }
   },
   computed: {
@@ -87,31 +92,39 @@ export default {
     clickMe1() {
           this.animate1 = false;
           this.animate1 = true;
+          this.src1 = require('../../statics/img/project1-blue.png');
           setTimeout(() => {
               this.animate1 = false;
+              this.src1 = require('../../statics/img/project1-blue.png');
           },700);
       },
       clickMe2() {
           this.animate2 = false;
           this.animate2 = true;
+          this.src2 = require('../../statics/img/project1-yellow.png');
           setTimeout(() => {
               this.animate2 = false;
+              this.src2 = require('../../statics/img/project1-blue.png');
           },700);
       },
       clickMe3() {
           this.animate3 = false;
           this.animate3 = true;
+          this.src3 = require('../../statics/img/project1-yellow.png');
           setTimeout(() => {
               this.animate3 = false;
+              this.src3 = require('../../statics/img/project1-blue.png');
           },700);
       },
       clickMe4() {
           this.animate4 = false;
           this.animate4 = true;
+          this.src4 = require('../../statics/img/project1-yellow.png');
           setTimeout(() => {
               this.animate4 = false;
+              this.src4 = require('../../statics/img/project1-blue.png');
           },700);
-      },
+    },
     addNumber(num) {
       return num > 9 ? num : `0${num}` ;
     },
@@ -224,9 +237,14 @@ export default {
         display flex
         justify-content space-evenly
         margin 120px auto 100px
-        img{
+        .icon{
+          background transparent
           width 300px
           height 200px
+          img{
+            width 100%
+            height 100%
+          }
         }
       }
     }
@@ -251,7 +269,6 @@ export default {
   appearance: none;
   background-color: transparent;
   color: #fff;
-  border-radius: 50px
   border: none;
   cursor: pointer;
   position: relative;
