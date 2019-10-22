@@ -303,7 +303,7 @@ export default {
 .bubbly-button:active {
   transform: scale(0.9);
   background-color: transparent;
-  box-shadow: 0 2px 25px #e9ea6f;
+  // box-shadow: 0 2px 25px #e9ea6f;
 }
 .bubbly-button.animate:before {
   display: block;
