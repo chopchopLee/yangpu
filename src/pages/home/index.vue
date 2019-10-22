@@ -33,10 +33,10 @@
       </div>
       <div class="list">
         <div class="icon bubbly-button" :class="{'animate': animate1}" @click="clickMe1">
-          <img src="../../statics/img/project3.png" alt="">
+          <img src="../../statics/img/project1.png" alt="">
         </div>
         <div class="icon bubbly-button" :class="{'animate': animate2}" @click="clickMe2">
-          <img src="../../statics/img/project3.png" alt="" class="icon bubbly-button" :class="{'animate': animate2}" @click="clickMe2">
+          <img src="../../statics/img/project2.png" alt="" class="icon bubbly-button" :class="{'animate': animate2}" @click="clickMe2">
         </div>
       </div>
       <div class="list">
@@ -44,7 +44,7 @@
           <img src="../../statics/img/project3.png" alt="">
         </div>
         <div  class="icon bubbly-button" :class="{'animate': animate4}" @click="clickMe4">
-          <img src="../../statics/img/project3.png" alt="">
+          <img src="../../statics/img/project4.png" alt="">
         </div>
       </div>
     </div>
@@ -155,7 +155,7 @@ export default {
 .main{
   .header{
     width: 100%;
-    padding 0 20px
+    padding 10px 20px 0 10px
     background #fff
     display flex
     align-items center
@@ -199,7 +199,7 @@ export default {
   }
   .info{
     background #d5655d
-    height 1220px
+    height 1210px
     background-image: url('../../statics/img/background-red.jpeg');
     background-size: 100% 100%;
     .center{
@@ -223,9 +223,10 @@ export default {
       .list{
         display flex
         justify-content space-evenly
+        margin 120px auto 100px
         img{
-          width 400px
-          height 300px
+          width 300px
+          height 200px
         }
       }
     }
@@ -250,7 +251,7 @@ export default {
   appearance: none;
   background-color: transparent;
   color: #fff;
-  border-radius: 100px
+  border-radius: 50px
   border: none;
   cursor: pointer;
   position: relative;
@@ -284,7 +285,7 @@ export default {
 }
 .bubbly-button:active {
   transform: scale(0.9);
-  background-color: #e9ea6f;
+  background-color: transparent;
   box-shadow: 0 2px 25px #e9ea6f;
 }
 .bubbly-button.animate:before {
