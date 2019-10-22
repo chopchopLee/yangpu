@@ -67,7 +67,7 @@ export default {
       animate2: false,
       animate3: false,
       animate4: false,
-      src1: require('../../statics/img/project1-yellow.png'),
+      src1: require('../../statics/img/project1-blue.png'),
       src2: require('../../statics/img/project2-blue.png'),
       src3: require('../../statics/img/project3-blue.png'),
       src4: require('../../statics/img/project4-blue.png'),
@@ -92,7 +92,7 @@ export default {
     clickMe1() {
           this.animate1 = false;
           this.animate1 = true;
-          this.src1 = require('../../statics/img/project1-blue.png');
+          this.src1 = require('../../statics/img/project1-yellow.png');
           setTimeout(() => {
               this.animate1 = false;
               this.src1 = require('../../statics/img/project1-blue.png');
@@ -101,28 +101,28 @@ export default {
       clickMe2() {
           this.animate2 = false;
           this.animate2 = true;
-          this.src2 = require('../../statics/img/project1-yellow.png');
+          this.src2 = require('../../statics/img/project2-yellow.png');
           setTimeout(() => {
               this.animate2 = false;
-              this.src2 = require('../../statics/img/project1-blue.png');
+              this.src2 = require('../../statics/img/project2-blue.png');
           },700);
       },
       clickMe3() {
           this.animate3 = false;
           this.animate3 = true;
-          this.src3 = require('../../statics/img/project1-yellow.png');
+          this.src3 = require('../../statics/img/project3-yellow.png');
           setTimeout(() => {
               this.animate3 = false;
-              this.src3 = require('../../statics/img/project1-blue.png');
+              this.src3 = require('../../statics/img/project3-blue.png');
           },700);
       },
       clickMe4() {
           this.animate4 = false;
           this.animate4 = true;
-          this.src4 = require('../../statics/img/project1-yellow.png');
+          this.src4 = require('../../statics/img/project4-yellow.png');
           setTimeout(() => {
               this.animate4 = false;
-              this.src4 = require('../../statics/img/project1-blue.png');
+              this.src4 = require('../../statics/img/project4-blue.png');
           },700);
     },
     addNumber(num) {
