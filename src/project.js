@@ -1,5 +1,5 @@
 import Vue from "vue";
-import Detail from "./pages/detail";
+import Project from "./pages/project";
 import 'vant/lib/index.css';
 import { Swipe, SwipeItem } from 'vant';
 
@@ -10,7 +10,7 @@ import "@/statics/styles/reset.less";
 window.onload = () => {
   new Vue({
     el: "#app",
-    components: { Detail },
-    render: h => h(Detail)
+    components: { Project },
+    render: h => h(Project)
   });
 };
