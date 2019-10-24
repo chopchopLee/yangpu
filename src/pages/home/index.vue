@@ -114,6 +114,7 @@ export default {
           setTimeout(() => {
               this.animate3 = false;
               this.src3 = require('../../statics/img/project3-blue.png');
+              location.href = location.href.replace('home','project');
           },700);
       },
       clickMe4() {

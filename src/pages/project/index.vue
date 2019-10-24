@@ -1,46 +1,67 @@
 <template>
-  <div class="projects-container">
+<div class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">
+ <div class="projects-container">
     <ul>
-        <li @click="isToggle()" v-for="i in 4" :key=i class="is-loaded">
+        <li class="is-loaded" v-for="(item,index) in list" :key=index @click="goUrl(item)">
             <div class="cd-title">
                 <h2>
-                    商铺位置
+                    {{item.title}}
                 </h2>
             </div>
         </li>
     </ul>
 </div> 
+</div>
 </template>
 
 <script>
-  export default {
-    name: "index",
-    data() {
-      return {
-
-      }
-    },
-    methods:{
-      isToggle() {
-      // var selectedProject = $(this),
-      //     toggle = !selectedProject.hasClass('is-full-width');
-      // if (toggle)
-      //     toggleProject($(this), $('.projects-container'), toggle);
-      // }
-      }
+export default {
+  data() {
+    return {
+      list: [
+        {title: '商铺位置',url:''},
+        {title: '品牌引导',url:'shoplist'},
+        {title: '新旧对比',url:''},
+        {title: '折扣信息',url:''},
+      ]
+    }
+  },
+  methods: {
+    goUrl(item) {
+      location.href = location.href.replace('project',item.url);    
     }
   }
+}
 </script>
 
 <style scoped>
- .projects-container {
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.projects-container {
+  font-family: "PT Sans", sans-serif;
+  color: #ffffff;
+  background-color: #101524;
+  overflow-x:hidden
+}
+
+a {
+  color: #9e1c51;
+  text-decoration: none;
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+.projects-container {
   height: 100vh;
   width: 100vw;
   position: relative;
-}
-.projects-container::before {
-  content: 'mobile';
-  display: none;
 }
 .projects-container li {
   position: absolute;
@@ -50,10 +71,18 @@
   height: 25%;
   overflow: hidden;
   cursor: pointer;
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
   transition: transform 0.4s;
+  /* on mobile -  move items outside the viewport */
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
   transform: translateX(-100%);
 }
 .projects-container li::after {
+  /* background image */
   content: '';
   position: absolute;
   top: 0;
@@ -64,10 +93,13 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  -webkit-transition: opacity 0.5s, height 0.4s;
+  -moz-transition: opacity 0.5s, height 0.4s;
   transition: opacity 0.5s, height 0.4s;
 }
 .projects-container li::before {
-  content: url('../../statics/img/img-1-small.jpg');
+  /* never visible - this is used in jQuery to detect if the background image has been loaded  */
+  content: '../../statics/img/img-1-small.jpg';
   display: none;
 }
 .projects-container li:nth-of-type(2) {
@@ -77,7 +109,7 @@
   background-image: url("../../statics/img/img-2-small.jpg");
 }
 .projects-container li:nth-of-type(2)::before {
-  content: url('../../statics/img/img-2-small.jpg');
+  content: '../../statics/img/img-2-small.jpg';
 }
 .projects-container li:nth-of-type(3) {
   top: 50vh;
@@ -86,7 +118,7 @@
   background-image: url("../../statics/img/img-3-small.jpg");
 }
 .projects-container li:nth-of-type(3)::before {
-  content: url('../../statics/img/img-3-small.jpg');
+  content: '../../statics/img/img-3-small.jpg';
 }
 .projects-container li:nth-of-type(4) {
   top: 75vh;
@@ -95,25 +127,30 @@
   background-image: url("../../statics/img/img-4-small.jpg");
 }
 .projects-container li:nth-of-type(4)::before {
-  content: url('../../statics/img/img-4-small.jpg');
+  content: '../../statics/img/img-4-small.jpg';
 }
 .projects-container li.is-loaded {
+  /* move items in the viewport when background images have been loaded */
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
   transform: translateX(0);
 }
 .projects-container li.is-full-width {
+  /* selected item */
   top: 0;
   height: auto;
   z-index: 1;
   cursor: auto;
+  -webkit-transition: z-index 0s 0s, top 0.4s 0s;
+  -moz-transition: z-index 0s 0s, top 0.4s 0s;
   transition: z-index 0s 0s, top 0.4s 0s;
 }
 .projects-container li.is-full-width::after {
   height: 100vh;
 }
 @media only screen and (min-width: 1024px) {
-  .projects-container::before {
-    content: 'desktop';
-  }
   .projects-container li {
     width: 25vw;
     height: 100%;
@@ -128,7 +165,7 @@
     transition: width 0s;
   }
   .projects-container li:first-of-type::before {
-    content: url('../../statics/img/img-1-large.jpg');
+    content: '../../statics/img/img-1-large.jpg';
   }
   .projects-container li:first-of-type::after {
     background-image: url("../../statics/img/img-1-large.jpg");
@@ -138,7 +175,7 @@
     left: 25vw;
   }
   .projects-container li:nth-of-type(2)::before {
-    content: url('../../statics/img/img-2-large.jpg');
+    content: '../../statics/img/img-2-large.jpg';
   }
   .projects-container li:nth-of-type(2)::after {
     background-image: url("../../statics/img/img-2-large.jpg");
@@ -148,7 +185,7 @@
     left: 50vw;
   }
   .projects-container li:nth-of-type(3)::before {
-    content: url('../../statics/img/img-3-large.jpg');
+    content: '../../statics/img/img-3-large.jpg';
   }
   .projects-container li:nth-of-type(3)::after {
     background-image: url("../../statics/img/img-3-large.jpg");
@@ -158,7 +195,7 @@
     left: 75vw;
   }
   .projects-container li:nth-of-type(4)::before {
-    content: url('../../statics/img/img-4-large.jpg');
+    content: '../../statics/img/img-4-large.jpg';
   }
   .projects-container li:nth-of-type(4)::after {
     background-image: url("../../statics/img/img-4-large.jpg");
@@ -184,7 +221,7 @@
     transition: width 0.4s 0s, z-index 0s 0s, left 0.4s 0s;
   }
 }
-@media only screen and (min-width: 1170px) {
+@media only screen and (min-width: 1020px) {
   .projects-container li::after {
     background-attachment: fixed;
     -webkit-transform: scale(1.1);
@@ -279,39 +316,9 @@
     display: block;
   }
 }
-@media only screen and (min-width: 1170px) {
+@media only screen and (min-width: 1020px) {
   .cd-title h2 {
     font-size: 3.6rem;
-  }
-}
-
-.cd-project-info {
-  clear: both;
-  visibility: hidden;
-  opacity: 0;
-  margin-top: 100vh;
-  padding: 4em 0;
-  cursor: auto;
-  background-color: #ffffff;
-  color: #3f538e;
-  -webkit-transition: opacity 0.4s 0s, visibility 0s 0.4s;
-  -moz-transition: opacity 0.4s 0s, visibility 0s 0.4s;
-  transition: opacity 0.4s 0s, visibility 0s 0.4s;
-}
-.is-full-width .cd-project-info {
-  visibility: visible;
-  opacity: 1;
-}
-.cd-project-info p {
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 2;
-}
-@media only screen and (min-width: 1024px) {
-  .cd-project-info {
-    position: relative;
-    z-index: 1;
   }
 }
 
@@ -360,4 +367,5 @@
     transform: translateX(-50%) scale(1);
   }
 }
+
 </style>
