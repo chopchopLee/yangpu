@@ -19,7 +19,7 @@ let config = {
   },
 
   build: {
-    entries: ['home','project'],
+    entries: ['home','project','shoplist'],
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist/shop/'),
     assetsSubDirectory: 'statics',
